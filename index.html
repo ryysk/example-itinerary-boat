@@ -79,7 +79,12 @@
       align-items: center;
     }
 
-    .nav {
+    /* CSS-Only Radio Tab Bar */
+    input.tab-control {
+      display: none;
+    }
+
+    .tab-bar {
       display: flex;
       gap: 0.5rem;
       background: #e2e8f0;
@@ -89,11 +94,10 @@
       overflow-x: auto;
     }
 
-    .nav button {
+    .tab-label {
       flex: 1;
       min-width: 140px;
-      background: none;
-      border: none;
+      text-align: center;
       padding: 0.65rem 1rem;
       font-size: 0.9rem;
       font-weight: 600;
@@ -102,24 +106,33 @@
       border-radius: 7px;
       transition: all 0.15s ease;
       white-space: nowrap;
+      user-select: none;
     }
 
-    .nav button:hover {
+    .tab-label:hover {
       color: var(--text-main);
     }
 
-    .nav button.active {
+    /* Tab selection states */
+    #tab-radio-logistics:checked ~ .tab-bar label[for="tab-radio-logistics"],
+    #tab-radio-itinerary:checked ~ .tab-bar label[for="tab-radio-itinerary"],
+    #tab-radio-dining:checked ~ .tab-bar label[for="tab-radio-dining"],
+    #tab-radio-packing:checked ~ .tab-bar label[for="tab-radio-packing"] {
       background: var(--surface);
       color: var(--navy);
       box-shadow: var(--shadow-sm);
     }
 
+    /* Panels Display Rules */
     .panel {
       display: none;
     }
 
-    .panel.active {
-      display: block !important;
+    #tab-radio-logistics:checked ~ #logistics,
+    #tab-radio-itinerary:checked ~ #itinerary,
+    #tab-radio-dining:checked ~ #dining,
+    #tab-radio-packing:checked ~ #packing {
+      display: block;
     }
 
     .card {
@@ -223,194 +236,4 @@
       font-size: 0.75rem;
       font-weight: 700;
       padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: var(--surface-subtle);
-      color: var(--navy);
-      border: 1px solid var(--border);
-    }
-
-    summary::after {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-right: 2px solid var(--text-muted);
-      border-bottom: 2px solid var(--text-muted);
-      transform: rotate(45deg);
-      transition: transform 0.2s ease;
-      margin-left: 1rem;
-    }
-
-    details[open] summary::after {
-      transform: rotate(-135deg);
-    }
-
-    .day-content {
-      padding: 0.75rem 1.25rem 1.25rem;
-      border-top: 1px solid var(--border);
-      background: var(--surface-subtle);
-    }
-
-    .timeline-item {
-      display: flex;
-      gap: 1.25rem;
-      padding: 0.75rem 0;
-      border-bottom: 1px dashed var(--border);
-    }
-
-    .timeline-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0.25rem;
-    }
-
-    .time-slot {
-      min-width: 75px;
-      font-weight: 700;
-      font-size: 0.82rem;
-      color: var(--accent);
-      padding-top: 0.15rem;
-    }
-
-    .event-desc {
-      font-size: 0.92rem;
-      color: var(--text-main);
-    }
-
-    .table-container {
-      overflow-x: auto;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      background: var(--surface);
-    }
-
-    th {
-      background: var(--surface-subtle);
-      color: var(--text-muted);
-      font-weight: 700;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 0.85rem 1rem;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-    }
-
-    td {
-      padding: 1rem;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
-
-    tr:last-child td { border-bottom: none; }
-    td strong { color: var(--navy); }
-
-    .checklist-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .checklist-group:last-child {
-      margin-bottom: 0;
-    }
-
-    .group-header {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 700;
-      color: var(--text-muted);
-      margin-bottom: 0.65rem;
-    }
-
-    ul.check-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    ul.check-list li {
-      display: flex;
-      align-items: center;
-      background: var(--surface-subtle);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      transition: all 0.15s ease;
-    }
-
-    ul.check-list li:hover {
-      border-color: var(--border-focus);
-    }
-
-    ul.check-list input[type="checkbox"] {
-      appearance: none;
-      -webkit-appearance: none;
-      width: 18px;
-      height: 18px;
-      border: 2px solid #94a3b8;
-      border-radius: 4px;
-      cursor: pointer;
-      position: relative;
-      margin-right: 0.85rem;
-      flex-shrink: 0;
-      transition: all 0.15s ease;
-    }
-
-    ul.check-list input[type="checkbox"]:checked {
-      background: var(--accent);
-      border-color: var(--accent);
-    }
-
-    ul.check-list input[type="checkbox"]:checked::after {
-      content: "";
-      position: absolute;
-      top: 2px;
-      left: 5px;
-      width: 4px;
-      height: 8px;
-      border: solid white;
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
-    }
-
-    ul.check-list label {
-      font-size: 0.92rem;
-      cursor: pointer;
-      user-select: none;
-      flex: 1;
-    }
-
-    ul.check-list input[type="checkbox"]:checked + label {
-      color: var(--text-muted);
-      text-decoration: line-through;
-    }
-
-    @media (max-width: 600px) {
-      body { padding: 1rem 0.5rem; }
-      header { padding: 1.5rem; }
-      .timeline-item { flex-direction: column; gap: 0.25rem; }
-      .time-slot { min-width: auto; }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <header>
-      <div class="header-eyebrow">Trip Overview</div>
-      <h1>Carnival Paradise Family Cruise</h1>
-      <div class="subtitle">
-        <span>Nov 5 – Nov 9, 2026</span>
-        <span>•</span>
-        <span>Tampa to Cozumel</span>
-        <span>•</span>
-        <span>Deck 6 Forward (Upper Deck)</span>
-      </div>
-    </header>
-
-    <nav class
+      border-radius:
