@@ -399,4 +399,91 @@
       body { padding: 1rem 0.5rem; }
       header { padding: 1.5rem; }
       .timeline-item { flex-direction: column; gap: 0.25rem; }
-      .time-slot {
+      .time-slot { min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="header-eyebrow">Trip Overview</div>
+      <h1>Carnival Paradise Family Cruise</h1>
+      <div class="subtitle">
+        <span>Nov 5 – Nov 9, 2026</span>
+        <span>•</span>
+        <span>Tampa to Cozumel</span>
+        <span>•</span>
+        <span>Deck 6 Forward (Upper Deck)</span>
+      </div>
+    </header>
+
+    <nav class="nav">
+      <button type="button" class="tab-btn active" data-target="logistics">Key Logistics</button>
+      <button type="button" class="tab-btn" data-target="itinerary">Daily Schedule</button>
+      <button type="button" class="tab-btn" data-target="dining">Dining Guide</button>
+      <button type="button" class="tab-btn" data-target="packing">Packing Checklist</button>
+    </nav>
+
+    <!-- LOGISTICS PANEL -->
+    <section id="logistics" class="panel active">
+      <div class="card">
+        <div class="card-title">Reservation & Port Details</div>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-label">Vessel</div>
+            <div class="info-val">Carnival Paradise[cite: 1]</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Location</div>
+            <div class="info-val">Deck 6 Forward (Upper Deck)[cite: 1]</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Category</div>
+            <div class="info-val">Interior (4C)[cite: 1]</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Port Terminal</div>
+            <div class="info-val">Port Tampa Bay[cite: 1]</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Parking Location</div>
+            <div class="info-val">810 Channelside Dr[cite: 1]</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Self Parking Pass</div>
+            <div class="info-val">4 Nights Confirmed[cite: 1]</div>
+          </div>
+        </div>
+
+        <div class="alert warning">
+          <div class="alert-title">Stateroom Accessibility Notice</div>
+          Standard Category 4C interior cabins have a raised bathroom threshold step (approx. 4 to 8 inches) and doorways around 22–24 inches[cite: 1]. Verify that this sill is safe for all senior travelers.
+        </div>
+
+        <div class="alert">
+          <div class="alert-title">Terminal Wheelchair Assistance</div>
+          Carnival provides terminal boarding escorts upon arrival. Drop bags and guests at curbside porters before proceeding to the 810 Channelside garage[cite: 1]. For shipboard mobility, bring a personal folding transport chair or rent one to the cabin.
+        </div>
+      </div>
+    </section>
+
+    <!-- ITINERARY PANEL -->
+    <section id="itinerary" class="panel">
+      <details open>
+        <summary>
+          <span>Thu, Nov 5: Embarkation (Tampa)</span>
+          <span class="day-badge">Day 1</span>
+        </summary>
+        <div class="day-content">
+          <div class="timeline-item">
+            <div class="time-slot">10:00 AM</div>
+            <div class="event-desc">Curbside drop-off for baggage and mobility-limited guests at 810 Channelside terminal entrance[cite: 1]. Request wheelchair assistance at the security desk[cite: 1].</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-slot">12:00 PM</div>
+            <div class="event-desc">Welcome lunch on Deck 10 (Lido)[cite: 1]. BlueIguana Cantina features fresh vegetarian burritos and fish tacos[cite: 1].</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-slot">1:30 PM</div>
+            <div class="event-desc">Staterooms open[cite: 1]. Settle into your Deck 6 cabin and request medication refrigeration or a sharps container from
